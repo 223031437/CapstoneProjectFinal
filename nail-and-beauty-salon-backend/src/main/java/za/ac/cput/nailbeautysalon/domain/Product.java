@@ -1,0 +1,189 @@
+package za.ac.cput.nailbeautysalon.domain;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+/* author: Confidence Khoza
+   Student number: 222927402
+ */
+@Entity
+public class Product {
+    @Id
+    private int productID;
+    private String productName;
+    private String category;
+    private double price;
+    private int quantityInStock;
+    private int lowStockThreshold;
+    private String unitOfMeasure;
+    private String supplier;
+    private String description;
+
+    private Product(Builder builder) {
+        this.productID = builder.productID;
+        this.productName = builder.productName;
+        this.category = builder.category;
+        this.price = builder.price;
+        this.quantityInStock = builder.quantityInStock;
+        this.lowStockThreshold = builder.lowStockThreshold;
+        this.unitOfMeasure = builder.unitOfMeasure;
+        this.supplier = builder.supplier;
+        this.description = builder.description;
+    }
+
+    public Product() {
+
+    }
+
+    // Lets Jackson build this straight from incoming JSON — the class only
+    // exposes a Builder otherwise, which Jackson can't drive automatically.
+    @JsonCreator
+    public Product(
+            @JsonProperty("productID") int productID,
+            @JsonProperty("productName") String productName,
+            @JsonProperty("category") String category,
+            @JsonProperty("price") double price,
+            @JsonProperty("quantityInStock") int quantityInStock,
+            @JsonProperty("lowStockThreshold") int lowStockThreshold,
+            @JsonProperty("unitOfMeasure") String unitOfMeasure,
+            @JsonProperty("supplier") String supplier,
+            @JsonProperty("description") String description) {
+        this.productID = productID;
+        this.productName = productName;
+        this.category = category;
+        this.price = price;
+        this.quantityInStock = quantityInStock;
+        this.lowStockThreshold = lowStockThreshold;
+        this.unitOfMeasure = unitOfMeasure;
+        this.supplier = supplier;
+        this.description = description;
+    }
+
+    public int getProductID() {
+        return productID;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public int getQuantityInStock() {
+        return quantityInStock;
+    }
+
+    public int getLowStockThreshold() {
+        return lowStockThreshold;
+    }
+
+    public String getUnitOfMeasure() {
+        return unitOfMeasure;
+    }
+
+    public String getSupplier() {
+        return supplier;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public static class Builder {
+
+        @Override
+        public String toString() {
+            return "Product{" +
+                    "productID=" + productID +
+                    ", productName='" + productName + '\'' +
+                    ", category='" + category + '\'' +
+                    ", price=" + price +
+                    ", quantityInStock=" + quantityInStock +
+                    ", lowStockThreshold=" + lowStockThreshold +
+                    ", unitOfMeasure='" + unitOfMeasure + '\'' +
+                    ", supplier='" + supplier + '\'' +
+                    ", description='" + description + '\'' +
+                    '}';
+        }
+
+        private int productID;
+        private String productName;
+        private String category;
+        private double price;
+        private int quantityInStock;
+        private int lowStockThreshold;
+        private String unitOfMeasure;
+        private String supplier;
+        private String description;
+
+        public Builder setProductID(int productID) {
+            this.productID = productID;
+            return this;
+        }
+
+        public Builder setProductName(String productName) {
+            this.productName = productName;
+            return this;
+        }
+
+        public Builder setCategory(String category) {
+            this.category = category;
+            return this;
+        }
+
+        public Builder setPrice(double price) {
+            this.price = price;
+            return this;
+        }
+
+        public Builder setQuantityInStock(int quantityInStock) {
+            this.quantityInStock = quantityInStock;
+            return this;
+        }
+
+        public Builder setLowStockThreshold(int lowStockThreshold) {
+            this.lowStockThreshold = lowStockThreshold;
+            return this;
+        }
+
+        public Builder setUnitOfMeasure(String unitOfMeasure) {
+            this.unitOfMeasure = unitOfMeasure;
+            return this;
+        }
+
+        public Builder setSupplier(String supplier) {
+            this.supplier = supplier;
+            return this;
+        }
+
+        public Builder setDescription(String description) {
+            this.description = description;
+            return this;
+        }
+
+        public Builder copy(Product product) {
+            this.productID = product.productID;
+            this.productName = product.productName;
+            this.category = product.category;
+            this.price = product.price;
+            this.quantityInStock = product.quantityInStock;
+            this.lowStockThreshold = product.lowStockThreshold;
+            this.unitOfMeasure = product.unitOfMeasure;
+            this.supplier = product.supplier;
+            this.description = product.description;
+            return this;
+        }
+
+        public Product build() {
+            return new Product(this);
+        }
+    }
+}

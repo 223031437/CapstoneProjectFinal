@@ -1,0 +1,75 @@
+.arch-frame {
+  position: relative;
+  border-radius: var(--radius-arch);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  isolation: isolate;
+}
+
+.arch-frame__glow {
+  position: absolute;
+  inset: -20%;
+  z-index: -1;
+  opacity: 0.9;
+}
+
+.arch-frame--clay {
+  background: linear-gradient(175deg, #E7C4AE 0%, #C77E5B 55%, #9B5236 100%);
+}
+
+.arch-frame--clay .arch-frame__glow {
+  background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.35), transparent 55%);
+}
+
+.arch-frame--sage {
+  background: linear-gradient(175deg, #DCE3C9 0%, #93A175 55%, #67744F 100%);
+}
+
+.arch-frame--sage .arch-frame__glow {
+  background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.35), transparent 55%);
+}
+
+.arch-frame--ink {
+  background: linear-gradient(175deg, #574B43 0%, #362D28 65%, #241D19 100%);
+}
+
+.arch-frame--ink .arch-frame__glow {
+  background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.18), transparent 55%);
+}
+
+.arch-frame__icon {
+  color: rgba(255, 255, 255, 0.95);
+  display: flex;
+}
+
+.arch-frame__icon svg {
+  width: 34px;
+  height: 34px;
+}
+
+.arch-frame__label {
+  color: rgba(255, 255, 255, 0.92);
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-style: italic;
+}
+
+.arch-frame--sm {
+  min-height: 120px;
+}
+.arch-frame--sm .arch-frame__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.arch-frame--md {
+  min-height: 220px;
+}
+
+.arch-frame--lg {
+  min-height: 420px;
+}

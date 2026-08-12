@@ -1,0 +1,149 @@
+package za.ac.cput.nailbeautysalon.domain;
+/* Employee.java
+Employee class
+Author: Vincent Kanzi(221188932)
+Date: 21 June 2026
+*/
+
+import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+
+@Entity
+public class Employee extends User{
+    private String employeeId;
+    private String role;
+
+    protected Employee() {}
+
+    public Employee(Builder builder) {
+        this.userId = builder.userId;
+        this.firstName = builder.firstName;
+        this.lastName = builder.lastName;
+        this.email = builder.email;
+        this.cellNumber = builder.cellNumber;
+        this.employeeId = builder.employeeId;
+        this.role = builder.role;
+
+    }
+
+    // Lets Jackson build this straight from incoming JSON — the class only
+    // exposes a Builder otherwise, which Jackson can't drive automatically.
+    @JsonCreator
+    public Employee(
+            @JsonProperty("userId") String userId,
+            @JsonProperty("firstName") String firstName,
+            @JsonProperty("lastName") String lastName,
+            @JsonProperty("email") String email,
+            @JsonProperty("cellNumber") String cellNumber,
+            @JsonProperty("employeeId") String employeeId,
+            @JsonProperty("role") String role) {
+        this.userId = userId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.cellNumber = cellNumber;
+        this.employeeId = employeeId;
+        this.role = role;
+    }
+    public String getUserId() {
+        return userId;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getCellNumber() {
+        return cellNumber;
+    }
+
+    public String getEmployeeId() {
+        return employeeId;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "employeeId=" + employeeId +
+                ", role=" + role +
+                ", userId=" + userId +
+                ", lastName=" + lastName +
+                ", firstName=" + firstName +
+                ", email=" + email +
+                ", cellNumber=" + cellNumber +
+                '}';
+    }
+
+    public static class Builder{
+        private String userId;
+        private String firstName;
+        private String lastName;
+        private String email;
+        private String cellNumber;
+        private String employeeId;
+        private String role;
+
+        public Builder setUserId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+        public Builder setFirstName(String firstName) {
+            this.firstName = firstName;
+            return this;
+        }
+
+        public Builder setLastName(String lastName) {
+            this.lastName = lastName;
+            return this;
+        }
+
+        public Builder setEmail(String email) {
+            this.email = email;
+            return this;
+        }
+
+        public Builder setCellNumber(String cellNumber) {
+            this.cellNumber = cellNumber;
+            return this;
+        }
+
+        public Builder setEmployeeId(String employeeId) {
+            this.employeeId = employeeId;
+            return this;
+        }
+
+        public Builder setRole(String role) {
+            this.role = role;
+            return this;
+        }
+
+        public Builder copy(Employee employee){
+            this.userId = employee.userId;
+            this.firstName = employee.firstName;
+            this.lastName = employee.lastName;
+            this.email = employee.email;
+            this.cellNumber = employee.cellNumber;
+            this.employeeId = employee.employeeId;
+            this.role = employee.role;
+            return this;
+        }
+
+        public Employee build(){ return new Employee(this);}
+    }
+
+}

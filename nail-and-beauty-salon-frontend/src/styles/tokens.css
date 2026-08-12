@@ -1,0 +1,45 @@
+/* ============================================================
+   Terra & Bloom — design tokens
+   A warm, gender-neutral wellness-studio identity.
+   ============================================================ */
+:root {
+  /* --- color --- */
+  --color-bg: #F7F1E8;          /* warm cream canvas */
+  --color-surface: #FFFDF9;     /* card / panel surface */
+  --color-surface-alt: #EFE6D8; /* secondary panel, hairline fill */
+  --color-ink: #2A2320;         /* warm near-black text */
+  --color-ink-soft: #6B6058;    /* muted body text */
+  --color-clay: #B5654A;        /* primary accent — terracotta */
+  --color-clay-deep: #8C4B34;   /* hover / pressed state */
+  --color-clay-tint: #F1DDD2;   /* light clay wash for chips/badges */
+  --color-sage: #77835F;        /* secondary accent — wellness green */
+  --color-sage-tint: #E4E8D9;   /* light sage wash */
+  --color-line: #E2D5C3;        /* hairline borders / dividers */
+  --color-line-strong: #CBB89E;
+
+  /* --- type --- */
+  --font-display: 'Fraunces', 'Iowan Old Style', 'Georgia', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* --- radius --- */
+  --radius-arch: 240px 240px 12px 12px;
+  --radius-card: 18px;
+  --radius-pill: 999px;
+  --radius-sm: 10px;
+
+  /* --- shadow --- */
+  --shadow-soft: 0 20px 45px -25px rgba(42, 35, 32, 0.35);
+  --shadow-lift: 0 12px 30px -18px rgba(42, 35, 32, 0.3);
+
+  /* --- layout --- */
+  --content-width: 1160px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+}
